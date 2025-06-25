@@ -1,4 +1,5 @@
 import streamlit as st
+import plotly.graph_objects as go
 from prediction_helper import predict  # Ensure this is correctly linked to your prediction_helper.py
 
 # Set the page configuration and title
@@ -57,8 +58,32 @@ if st.button('Calculate Risk'):
                                                 delinquency_ratio, credit_utilization_ratio, num_open_accounts,
                                                 residence_type, loan_purpose, loan_type)
 
-    # Display the results
-    st.write(f"Default Probability: {probability:.2%}")
-    st.write(f"Credit Score: {credit_score}")
-    st.write(f"Rating: {rating}")
+  
+st.write(f"Default Probability: {probability:.2%}")
+st.write(f"Credit Score: {credit_score}")
+st.write(f"Rating: {rating}")
+
+# Credit Score Gauge Meter
+fig = go.Figure(go.Indicator(
+    mode="gauge+number",
+    value=credit_score,
+    title={'text': "Credit Score"},
+    gauge={
+        'axis': {'range': [300, 900]},
+        'bar': {'color': "blue"},
+        'steps': [
+            {'range': [300, 500], 'color': "red"},
+            {'range': [500, 650], 'color': "orange"},
+            {'range': [650, 750], 'color': "yellow"},
+            {'range': [750, 900], 'color': "green"},
+        ],
+        'threshold': {
+            'line': {'color': "black", 'width': 4},
+            'thickness': 0.75,
+            'value': credit_score
+        }
+    }
+))
+
+st.plotly_chart(fig)
 
