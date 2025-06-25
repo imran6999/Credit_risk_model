@@ -8,7 +8,7 @@ st.title("AB Bank Finance: Credit Risk Modelling")
 # Create rows of three columns each
 row1 = st.columns(3)
 row2 = st.columns(3)
-row3 = st.columns(3)A
+row3 = st.columns(3)
 row4 = st.columns(3)
 
 # Assign inputs to the first row with default values
@@ -58,7 +58,7 @@ if st.button('Calculate Risk'):
                                                 residence_type, loan_purpose, loan_type)
 
     # Display the results
-    st.write(f"Deafult Probability: {probability:.2%}")
+    st.write(f"Default Probability: {probability:.2%}")
     st.write(f"Credit Score: {credit_score}")
     st.write(f"Rating: {rating}")
 
