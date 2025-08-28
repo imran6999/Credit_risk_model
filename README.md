@@ -91,11 +91,15 @@ Credit_risk_model/
 ---
 
 ## 🎨 Demo & Visualization
+-**Streamlit App**: Provides sliders and inputs for real-time predictions
 - **Plotly Gauge Meter**: Displays credit score dynamically for easy interpretation  
-- **Streamlit App**: Provides sliders and inputs for real-time predictions  
+  
 
 
 ![Streamlit UI Screenshot](streamlit_ui.png.png)
+![Streamlit UI Screenshot](credit_score.png.png)
+
+
 ---
 
 ## 🌐 Deployment
